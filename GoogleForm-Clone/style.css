@@ -150,3 +150,27 @@ body {
     border: 0;
   }
 
+
+  /* practice-clone notice: always visible, cannot be dismissed */
+  .clone-banner {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    background-color: #fff4ce;
+    color: #3c2a00;
+    border-bottom: 3px solid #b06000;
+    font-family: arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .demo-message {
+    clear: both;
+    margin: 0;
+    padding-top: 1rem;
+    color: #3c2a00;
+    font-weight: 700;
+    text-align: center;
+  }
