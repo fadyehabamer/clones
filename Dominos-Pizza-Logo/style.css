@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+/* standards mode: give .container's height: 100% a definite parent height
+   (the page previously relied on quirks mode for vertical centering) */
+html,
+body {
+    height: 100%;
+}
+
 .container {
     width: 100%;
     height: 100%;

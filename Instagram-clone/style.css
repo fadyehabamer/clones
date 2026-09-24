@@ -38,6 +38,15 @@ button {
     height: fit-content;
 }
 
+/* buttons/links drop the default outline above; keep a keyboard focus ring */
+button:focus-visible,
+.content .post .post-top button:focus-visible,
+.navbar a:focus-visible,
+.header .search-bar #search:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
 /* Colors */
 :root.darkMode {
     --primary: #000000;
