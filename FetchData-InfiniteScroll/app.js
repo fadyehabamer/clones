@@ -4,6 +4,7 @@ const filter = document.getElementById('filter');
 
 let limit = 5;
 let page = 1;
+let isLoading = false;
 
 
 
@@ -35,14 +36,19 @@ showPosts();
 
 // Show loader & fetch more posts
 function showLoading() {
+    isLoading = true;
     loading.classList.add('show');
 
     setTimeout(() => {
         loading.classList.remove('show');
 
-        setTimeout(() => {
+        setTimeout(async () => {
             page++;
-            showPosts();
+            try {
+                await showPosts();
+            } finally {
+                isLoading = false;
+            }
         }, 300);
     }, 1000);
 }
@@ -51,8 +57,8 @@ function showLoading() {
 //   Scroll Functionality
 window.addEventListener('scroll', () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 5) {
-        page++;
+    // ignore the burst of scroll events while a page is already loading
+    if (!isLoading && scrollTop + clientHeight >= scrollHeight - 5) {
         showLoading();
     }
 })
